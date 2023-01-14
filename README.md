@@ -1,6 +1,6 @@
 # .desktop-client connector
 
-Allows to "link up" clients with their corrosponding .desktop file.
+Allows to "link up" clients with their corrosponding .desktop files.
 
 Usage:
 
