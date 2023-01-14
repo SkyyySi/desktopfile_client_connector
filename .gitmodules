@@ -1,0 +1,3 @@
+[submodule "better-lua-modules"]
+	path = better-lua-modules
+	url = https://github.com/SkyyySi/better-lua-modules
