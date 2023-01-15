@@ -5,10 +5,12 @@ local beautiful = require("beautiful")
 --- missing features and makes some other small modifications
 local menubar_utils = require(... .. ".menubar_utils")
 
-local bm = require(... .. ".better-lua-modules.src")
+local bm = require("desktopfile_client_connector.better-lua-modules.src")
 local module = bm.create_module {
 	name = "SkyyySi.SlimeOS-awesome.desktopfile_client_connector",
 }
+
+module.gnome_favorites = require(... .. ".gnome_favorites")
 
 module.generic_app_icon = gears.surface.load_silently(menubar_utils.lookup_icon("application-x-executable") or beautiful.awesome_icon)
 
@@ -44,7 +46,7 @@ function module:desktopfile_cache_is_empty()
 	return next(self.desktopfile_cache) == nil
 end
 
-function module:update_desktopfile_cache_async(callback, do_not_regenerate)
+function module:update_desktopfile_cache(callback, do_not_regenerate)
 	if not self:desktopfile_cache_is_empty() and do_not_regenerate then
 		callback(self)
 		return
@@ -133,7 +135,7 @@ end
 
 module.app_to_desktopdata_map = {}
 function module:update_app_to_desktopdata_map(callback)
-	self:update_desktopfile_cache_async(function(all_apps)
+	self:update_desktopfile_cache(function(all_apps)
 		if not all_apps then
 			return
 		end
