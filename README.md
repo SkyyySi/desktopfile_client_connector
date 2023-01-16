@@ -9,7 +9,7 @@ Clone this repository into your `awesome` config directory. Make sure to
 also download the submodules!
 
 ```bash
-git clone https://github.com/SkyyySi/desktopfile_client_connector
+git clone https://github.com/SkyyySi/desktopfile_client_connector "${XDG_CONFIG_HOME:-$HOME/.config}/awesome/desktopfile_client_connector"
 cd desktopfile_client_connector
 git submodule update
 ```
